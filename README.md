@@ -1,4 +1,4 @@
-# PC-TED: A Learning-based Point Cloud Compression Toolkit For Training, Evaluation and Deployment
+# PC-TED: A Learning-based Point Cloud Compression Toolkit for Training, Evaluation and Deployment
 
 ## Introduction
 
@@ -22,9 +22,9 @@ chmod +x install.sh
 ```
 
 ## Usage
-- Model Zoo: Please refer to `Examples/model_zoo.md`.
-- Compression Evaluator and Inference Evaluator: Please refer to `Examples/evaluator.py`.
-- Model Exportor: Please refer to `Examples/exportor.py`.
+- Model Zoo: Please refer to `examples/model_zoo.md`.
+- Compression Evaluator and Inference Evaluator: Please refer to `examples/evaluator.py`.
+- Model Exportor: Please refer to `examples/exportor.py`.
 
 ## Algorithm Comparasion
 ### Compression performance measured by bits per point (bpp) of some lossless intra-frame methods in the model zoo.
