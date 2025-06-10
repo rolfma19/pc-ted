@@ -15,8 +15,8 @@ PC-TED is a unified toolkit bridging research and practical application for lear
 
 ## Installation
 ```bash
-git clone —recursive https://gitee.com/rolfma/pcted.git
-cd pcted
+git clone —recursive https://gitee.com/rolfma/pc-ted.git
+cd pc-ted
 chmod +x install.sh
 ./install.sh
 ```

@@ -1,4 +1,4 @@
-cd MinkowskiEngineNext
+cd src
 
 conda install "setuptools <65"
 
