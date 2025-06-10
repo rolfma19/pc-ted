@@ -1,0 +1,16 @@
+D-DPCC/results/
+D-DPCC/tmp/
+LDPCC/mpeg-results-96-3/
+LDPCC/tmp-3/
+AdaDPCC/
+CRC-DPCGC/
+DCM-DPCC/
+MP-DPCC/
+patchDPCC/
+Unicorn/
+spatio-temporal_transformer-style_modeling_PCC/
+Temporal_conditional_DPCC/
+U-motion/
+
+.history
+.vscode

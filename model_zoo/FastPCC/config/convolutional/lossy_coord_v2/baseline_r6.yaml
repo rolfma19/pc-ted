@@ -1,0 +1,8 @@
+# include "config/convolutional/lossy_coord_v2/baseline_r5.yaml"
+
+model:
+  bits_loss_factor: 3.0
+
+test:
+  dataset:
+    coord_scaler: [0.125, 1.0, 1.0, 1.0, 1.0]

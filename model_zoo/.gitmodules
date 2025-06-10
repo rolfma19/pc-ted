@@ -1,0 +1,31 @@
+[submodule "LDPCC"]
+	path = LDPCC
+	url = https://github.com/ttlzfhy/LDPCC.git
+
+[submodule "D-DPCC"]
+	path = D-DPCC
+	url = https://github.com/ttlzfhy/D-DPCC.git
+
+[submodule "PointCloudCompression"]
+	path = PointCloudCompression
+	url = https://github.com/aniqueakhtar/PointCloudCompression.git
+
+[submodule "Unicorn"]
+    path = Unicorn
+    url = https://github.com/NJUVISION/Unicorn.git
+
+[submodule "FastPCC"]
+	path = FastPCC
+	url = https://github.com/pengpeng-yu/FastPCC.git
+
+[submodule "SparsePCGC"]
+	path = SparsePCGC
+	url = https://github.com/NJUVISION/SparsePCGC.git
+
+[submodule "OctAttention"]
+	path = OctAttention
+	url = https://github.com/zb12138/OctAttention.git
+
+[submodule "PCGCv2"]
+	path = PCGCv2
+	url = https://github.com/NJUVISION/PCGCv2.git

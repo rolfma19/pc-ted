@@ -1,0 +1,100 @@
+diff --git a/dataset_lossy.py b/dataset_lossy.py
+index 80aa109..95a143e 100644
+--- a/dataset_lossy.py
++++ b/dataset_lossy.py
+@@ -14,17 +14,18 @@ class Dataset(data.Dataset):
+         self.type = type
+         self.scaling_factor = scaling_factor
+         self.return_normal = return_normal
+-        sequence_list = ['soldier', 'redandblack', 'loot', 'longdress', 'andrew', 'basketballplayer', 'dancer', 'david', 'exercise', 'phil', 'queen', 'ricardo', 'sarah', 'model']
++        sequence_list = ['soldier', 'redandblack', 'loot', 'longdress', 'andrew', 'basketball_player', 'dancer', 'david', 'exercise', 'phil', 'queen', 'ricardo', 'sarah', 'model']
+         self.sequence_list = sequence_list
+         start = [536, 1450, 1000, 1051, 0, 1, 1, 0, 1, 0, 0, 0, 0, 1]
+         end = [835, 1749, 1299, 1350, 317, 600, 600, 215, 600, 244, 249, 215, 206, 600]
+         num = [end[i] - start[i] for i in range(len(start))]
+         self.lookup = []
+         for i in split:
+-            sequence_dir = join(root_dir, sequence_list[i]+'_ori')
+-            # sequence_dir = join(root_dir, sequence_list[i])
++            # sequence_dir = join(root_dir, sequence_list[i]+'_ori')
++            sequence_dir = join(root_dir, sequence_list[i])
+             file_prefix = sequence_list[i]+'_vox'+str(bit)+'_'
+-            file_subfix = '.npy'
++            # file_subfix = '.npy'
++            file_subfix = '.ply'
+             if type == 'train':
+                 s = start[i]
+                 e = int((end[i]-start[i])*0.95+start[i])
+diff --git a/dataset_owlii.py b/dataset_owlii.py
+index 1934562..95b567a 100644
+--- a/dataset_owlii.py
++++ b/dataset_owlii.py
+@@ -9,13 +9,13 @@ import random
+ 
+ 
+ class Dataset(data.Dataset):
+-    def __init__(self, root_dir, split, bit=10, maximum=20475, type='train', scaling_factor=1, time_step=1, format='npy',
++    def __init__(self, root_dir, split, bit=10, maximum=20475, type='train', scaling_factor=1, time_step=1, format='ply',
+                  vpcc=False, anique=False, rate=None):
+         self.maximum = maximum
+         self.type = type
+         self.scaling_factor = scaling_factor
+         self.format = format
+-        sequence_list = ['basketball', 'dancer', 'exercise', 'model']
++        sequence_list = ['basketball_player', 'dancer', 'exercise', 'model']
+         sequence_prefix = ['basketball_player', 'dancer', 'exercise', 'model']
+         self.sequence_list = sequence_list
+         start = [1, 1, 1, 1]
+@@ -52,8 +52,8 @@ class Dataset(data.Dataset):
+                     s1 = str(s + time_step).zfill(4)
+                     s0 = str(s).zfill(4)
+                 else:
+-                    s1 = str(s+time_step).zfill(8)
+-                    s0 = str(s).zfill(8)
++                    s1 = str(s+time_step).zfill(4)
++                    s0 = str(s).zfill(4)
+                 file_name0 = file_prefix + s0 + file_subfix
+                 file_name1 = file_prefix + s1 + file_subfix
+                 file_dir = join(sequence_dir, file_name0)
+diff --git a/new_test_owlii_mpeg.py b/new_test_owlii_mpeg.py
+index 094691e..4d1f931 100644
+--- a/new_test_owlii_mpeg.py
++++ b/new_test_owlii_mpeg.py
+@@ -301,14 +301,14 @@ if __name__ == '__main__':
+     lossless_model = lossless_model.to(device).eval()
+ 
+     results = {
+-        'basketball': {'bpp': [], 'd1-psnr': [], 'd2-psnr': [], 'cd': [], 'exp_name': []},
++        'basketball_player': {'bpp': [], 'd1-psnr': [], 'd2-psnr': [], 'cd': [], 'exp_name': []},
+         'dancer': {'bpp': [], 'd1-psnr': [], 'd2-psnr': [], 'cd': [], 'exp_name': []},
+         'exercise': {'bpp': [], 'd1-psnr': [], 'd2-psnr': [], 'cd': [], 'exp_name': []},
+         'model': {'bpp': [], 'd1-psnr': [], 'd2-psnr': [], 'cd': [], 'exp_name': []}
+     }
+     '''
+     start testing
+-    0: basketballplayer
++    0: basketball_player
+     1: dancer
+     2: exercise
+     3: model
+diff --git a/new_test_owlii_mpeg_pcerror.py b/new_test_owlii_mpeg_pcerror.py
+index 5c19abc..da48203 100644
+--- a/new_test_owlii_mpeg_pcerror.py
++++ b/new_test_owlii_mpeg_pcerror.py
+@@ -305,14 +305,14 @@ if __name__ == '__main__':
+     lossless_model = lossless_model.to(device).eval()
+ 
+     results = {
+-        'basketball': {'bpp': [], 'd1-psnr': [], 'd2-psnr': [], 'exp_name': []},
++        'basketball_player': {'bpp': [], 'd1-psnr': [], 'd2-psnr': [], 'exp_name': []},
+         'dancer': {'bpp': [], 'd1-psnr': [], 'd2-psnr': [], 'exp_name': []},
+         'exercise': {'bpp': [], 'd1-psnr': [], 'd2-psnr': [], 'exp_name': []},
+         'model': {'bpp': [], 'd1-psnr': [], 'd2-psnr': [], 'exp_name': []}
+     }
+     '''
+     start testing
+-    0: basketballplayer
++    0: basketball_player
+     1: dancer
+     2: exercise
+     3: model

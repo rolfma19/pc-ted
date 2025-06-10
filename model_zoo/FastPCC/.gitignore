@@ -1,0 +1,16 @@
+.idea/
+.vscode/
+__pycache__/
+.DS_Store
+*.zip
+
+/bin/
+/tmp/
+/lib/entropy_models/rans_coder/build/
+/runs/
+/datasets/
+/weights/
+/scripts/old/
+/models/convolutional/debug/
+/train.sh
+/test.sh

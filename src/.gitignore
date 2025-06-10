@@ -1,0 +1,17 @@
+*.so
+*.[o,d,a]
+*.swo
+*.swp
+*.swn
+*.pyc
+
+build/
+objs/
+dist/
+MinkowskiEngine.egg-info/
+compile_commands.json
+*.ply
+.vscode
+.idea
+*.onnx
+*.egg-info

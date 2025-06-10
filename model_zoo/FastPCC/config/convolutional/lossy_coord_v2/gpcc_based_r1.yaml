@@ -1,0 +1,21 @@
+# include "config/convolutional/lossy_coord_v2/baseline_r1.yaml"
+
+model_module_path: models.convolutional.gpcc_lossy_coord_v2
+model:
+  activation: 'prelu'
+  compressed_channels: [1]
+  skip_encoding_fea: 1
+  encoder_channels: [16, 64]
+  decoder_channels: [16]
+  adaptive_pruning: True
+  geo_lossl_if_sample: [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+  geo_lossl_channels: [64, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 128, 1]
+  bits_loss_factor: 0.4
+  warmup_fea_loss_steps: 5000
+  warmup_fea_loss_factor: 0.01
+
+test:
+  dataset_module_path:
+    'lib.datasets.PlyVoxel.MPEG_GPCC_CTC_Solid_MVUB'
+  dataset:
+    kd_tree_partition_max_points_num: 0
