@@ -14,7 +14,12 @@ PC-TED is a unified toolkit bridging research and practical application for lear
 - **Model Exportor:** the model exporter is to convert networks into the Open Neural Network Exchange (ONNX) format.
 
 ## Installation
+We recommend using this toolkit with `Python 3.10`, `Pytorch 2.2.2` and `CUDA 11.8`.
 ```bash
+conda create -n PC-TED python==3.10
+conda activate PC-TED
+pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https://download.pytorch.org/whl/cu118
+
 git clone —recursive https://gitee.com/rolfma/pc-ted.git
 cd pc-ted
 chmod +x install.sh
