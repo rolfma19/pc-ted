@@ -1,6 +1,6 @@
-# Model Zoo of PC-TED
+# Model Zoo
 ## Introduction
-This repository is a the model zoo of PC-TED.
+This folder is the model zoo.
 
 ## Usage
 Please refer to ```Script.md```.

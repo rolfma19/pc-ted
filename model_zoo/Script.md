@@ -1,4 +1,4 @@
-## Training and testing shell scripts for dynamic PCC models
+## Training and testing scripts for point cloud compression models
 ### Part 1: Dataset Catalog Structure
 #### 1.Catalog Structure:  
     └── zyDatasets/
@@ -39,7 +39,7 @@ longdress_vox10_1052.ply
 In order to train and test the dataset in a uniform form, we need to make a small modification to the way D-DPCC and LDPCC load the point cloud data,please refer to the ```patchs/```:
 
 
-
+**Please run the following script in the `${your_project_dir}/model_zoo` directory.**
 ### Part 2: Training shell scripts
 #### 1.D-DPCC
 ```shell
@@ -62,21 +62,8 @@ cd LDPCC
 ```shell
 python -u trainer.py --pretrained=./pretrain_ckpts/I15_best_model.pth --lamb=10 --exp_name=I10 --gpu=3 >3.out 2>&1 &
 ```
-#### 3.dynamic4d
-```shell
-cd dynamic4d
-```
-Executed in a terminal: command form I:
-```shell
- python trainFrames2.py config/convolutional/coord_dynamic4d/baseline_8Stage_r2_2frames.yaml train.device='0' train.rundir_name='baseline4dimLastRefine/baseline_8stage_inter_lossy_kdTreeScaling_crossfeaEmbedding_data8iKdtree_epochs20_r2' train.batch_size=4 train.grad_acc_steps=2
-```
 
-Executed in a terminal: command form II:
-```shell
-./runs.sh
-```
-
-#### 4.PCGCv2
+#### 3.PCGCv2
 
 ```shell
 cd PCGCv2
@@ -86,7 +73,7 @@ cd PCGCv2
 python train.py --dataset='training_dataset_rootdir'   
 ```
 
-#### 5.FastPCC
+#### 4.FastPCC
 
 ```shell
 cd FastPCC
@@ -96,7 +83,7 @@ Basic testing orders:
 python test.py config/convolutional/lossy_coord_v2/baseline_r1.yaml test.from_ckpt='weights/convolutional/lossy_coord_v2/baseline_r1.pt' test.device='0'
 ```
 
-#### 6.SparsePCGC
+#### 5.SparsePCGC
 ```shell
 cd SparsePCGC
 ```
@@ -134,21 +121,12 @@ chmod -R 777 ./
 python -u new_test_owlii_mpeg.py --log_name=mpeg-results-96-3/96frames-3 --tmp_dir=tmp-3 --gpu=0 --results_dir=mpeg-results-96-3 --dataset_dir='/data/zyDatasets/MPEG_GPCC_CTC/Dynamic' --frame_count=32 --overwrite=True
 ```
 
-#### 3.dynamic4d
-```shell
-cd dynamic4d
-```
-Executed in a terminal: command form I:
-```shell
-python3 test.py ./config/convolutional/coord_dynamic4d/baseline_8Stage_r2_2frames.yaml test.weights_from_ckpt='/home/zy/project/dynamic4d/4dCheckpoint/r2/ckpts/epoch_19.pt'
-```
-
 Executed in a terminal: command form II:
 ```shell
 ./test.sh
 ```
 
-#### 4.PCGCv2
+#### 3.PCGCv2
 
 ```shell
 cd PCGCv2
@@ -163,7 +141,7 @@ python test.py --filedir='Staue_Klimt_vox12.ply' --scaling_factor=0.375 --rho=4.
 python test.py --filedir='House_without_roof_00057_vox12.ply' --scaling_factor=0.375 --rho=1.0 --res=4096
 ```
 
-#### 5.FastPCC
+#### 4.FastPCC
 
 ```shell
 cd FastPCC
@@ -173,7 +151,7 @@ Basic training orders:
 python train.py config/convolutional/lossy_coord_v2/baseline_r1.yaml train.device='0' train.rundir_name='lossy_coord_v2/baseline_r1'
 ```
 
-#### 6.SparsePCGC
+#### 5.SparsePCGC
 
 ```shell
 cd SparsePCGC
