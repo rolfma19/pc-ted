@@ -1,17 +1,16 @@
-# PC-TED: A Learning-based Point Cloud Compression Toolkit for Training, Evaluation and Deployment
+# Bridging Research and Practice: A Training, Evaluating, and Deploying Toolkit for Learning-Based Point Cloud Compression
 
 ## Introduction
 
 ![](./assets/fig_overview.jpg)
 
-PC-TED is a unified toolkit bridging research and practical application for learning-based point cloud compression. By consolidating training, evaluation, and deployment workflows, PC-TED facilitates systematic comparisons of compression algorithms with an emphasis on real-world applicability.
+This toolkit is a unified toolkit bridging research and practical application for learning-based point cloud compression. By consolidating training, evaluation, and deployment workflows, This toolkit facilitates systematic comparisons of compression algorithms with an emphasis on real-world applicability.
 
 ## Software Architecture
 
-- **Model Zoo:** we have included common point cloud compression methods in the model zoo.
-- **Compression Evaluator:** we currently include some metrics for evaluating the compression performance of algorithms.
-- **Inference Evaluator:** we aim to provide hardware platform-independent metrics for evaluating inference performance.
-- **Model Exportor:** the model exporter is to convert networks into the Open Neural Network Exchange (ONNX) format.
+- **Model Trainer:** Model trainer enables flexible dataset loading, data preprocessing, neural network designing, and model training.
+- **Model Evaluator:** Model evaluator facilitates the selection of an optimal model through compression evaluation, inference benchmarking, and visualization comparison.
+- **Model Exportor:** Model exporter is provided for converting trained models into the Open Neural Network Exchange (ONNX) format, supporting cross-platform deployment.
 
 ## Installation
 We recommend using this toolkit with `Python 3.10`, `Pytorch 2.2.2` and `CUDA 11.8`.
@@ -27,8 +26,8 @@ chmod +x install.sh
 ```
 
 ## Usage
-- Model Zoo: Please refer to `examples/model_zoo.md`.
-- Compression Evaluator and Inference Evaluator: Please refer to `examples/evaluator.py`.
+- Model Trainer: Please refer to `examples/trainer.md`.
+- Model Evaluator: Please refer to `examples/evaluator.py`.
 - Model Exportor: Please refer to `examples/exportor.py`.
 
 ## Algorithm Comparasion
